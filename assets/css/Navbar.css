@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navigation {
+  width: 300px;
+  height: 100vh;
+  background-color: #287bff;
+  padding: 40px 0 0 10px;
+  position: relative;
+  max-width: 73px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.navigation .nav-close {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 15px;
+  height: 15px;
+  fill: white;
+  stroke: white;
+  cursor: pointer;
+}
+
+.navigation ul {
+  margin-top: 40px;
+}
+
+.navigation li {
+  overflow: hidden;
+  list-style: none;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  padding-left: 15px;
+}
+
+.navigation li:hover {
+  background-color: #fff;
+}
+
+.navigation li:hover a {
+  color: #287bff;
+}
+
+.navigation li a {
+  color: white;
+  text-decoration: none;
+  text-transform: capitalize;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigation .icon {
+  margin-right: 25px;
+  font-size: 25px;
+  line-height: 0;
+}
+
+.navigation .nav-icon-title {
+  line-height: 0;
+  margin-top: 2px;
+}
+
+.nav-active {
+  max-width: 300px;
+}
+
+.nav-active .nav-close {
+  display: block;
+}
+
+.site-content-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.nav-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 66px;
+  background-color: #fff;
+  padding: 0 30px;
+}
+
+.burger-outline .burger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.burger-outline .burger > div {
+  background-color: #000;
+  height: 3px;
+  border-radius: 5px;
+}
+
+.burger-outline .burger div:first-child {
+  width: 40%;
+}
+
+.burger-outline .burger div:last-child {
+  width: 70%;
+}
+
+.user-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+
+.user-profile .user-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.user-profile .user-info {
+  font-size: 12px;
+  font-weight: bold;
+  color: grey;
+}
+
+.user-profile .user-info .user-name {
+  display: block;
+  color: #287bff;
+  font-size: 14px;
+}
+
+.site-content {
+  background-color: #fafafa;
+  height: 90vh;
+  padding: 40px 30px;
+}
+
+.section-header {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 30px;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 50px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.section-header .section-title {
+  font-size: 50px;
+  font-weight: 300;
+  color: #222;
+}
+
+.flex-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 30px;
+}
+
+.student-panel {
+  width: 40%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+  grid-gap: 30px;
+  justify-items: center;
+}
+
+.student-info-container {
+  width: 400px;
+  min-width: 300px;
+  border-radius: 10px;
+  padding: 8px 0;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  margin-bottom: 30px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding: 20px;
+}
+
+.student-info-container .student-name {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 32px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.student-info-container .student-name::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 60%;
+  height: 2px;
+  border-radius: 10px;
+  background-color: #000;
+}
+
+.student-info-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.student-info-content-inner .student-faculty-no, .student-info-content-inner .course-enrolled {
+  font-size: 15px;
+  color: #6c6e70;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.week-status {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #d8dee9;
+  border-radius: 10px;
+  padding: 15px 8px;
+}
+
+.week-status span {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.table {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-collapse: collapse;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table thead tr th {
+  padding: 10px;
+  background-color: #287bff;
+  color: white;
+}
+
+.table tbody tr td {
+  padding: 8px;
+  text-align: center;
+}
+
+.table tbody tr:first-child td {
+  padding-top: 20px;
+}
+
+.table tbody tr:last-child td {
+  padding-bottom: 20px;
+}
+
+.table .table-btn {
+  display: inline-block;
+  width: 100px;
+  padding: 3px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.table .completed {
+  background-color: #287bff;
+  color: white;
+}
+
+.table .ongoing {
+  background-color: #56bd00;
+  color: white;
+}
+
+.table .pending {
+  background-color: yellow;
+}
+/*# sourceMappingURL=Navbar.css.map */
