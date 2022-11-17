@@ -1,0 +1,107 @@
+
+.week-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+}
+
+.week-table thead tr th {
+  padding: 10px;
+  background-color: #287bff;
+  color: white;
+}
+
+.week-table tbody tr td {
+  padding: 8px;
+  text-align: center;
+}
+
+.week-table tbody tr:first-child td {
+  padding-top: 20px;
+}
+
+.week-table tbody tr:last-child td {
+  padding-bottom: 20px;
+}
+
+.week-table .table-btn {
+  display: inline-block;
+  width: 100px;
+  padding: 3px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-left: 5px;
+}
+
+.week-table .late {
+  background-color: red;
+  color: white;
+}
+
+.week-table .ontime {
+  background-color: #56bd00;
+  color: white;
+}
+
+.week-table .check {
+  background-color: #287bff;
+  color: white;
+}
+
+.week-table .check:hover {
+  background-color: #0d51bf;
+}
+
+@media (max-width: 786px) {
+  .week-table {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .week-table thead {
+    display: none;
+  }
+  .week-table tbody, .week-table tr, .week-table td {
+    display: block;
+    width: 100%;
+  }
+  .week-table tr {
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 10px;
+    -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+  .week-table tbody tr:first-child td, .week-table tbody tr:last-child td {
+    padding-block: 8px;
+  }
+  .week-table tbody tr td {
+    text-align: right;
+    position: relative;
+  }
+  .week-table tbody tr td:last-child {
+    padding-top: 20px;
+    text-align: center;
+  }
+  .week-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    font-weight: 600;
+    text-align: left;
+  }
+}
+/*# sourceMappingURL=student-section.css.map */
