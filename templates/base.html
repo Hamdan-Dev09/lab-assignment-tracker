@@ -32,7 +32,11 @@
                 <div class="user-profile">
                     <div class="user-img"></div>
                     <div class="user-info">
-                        <p>Logged in as <span class="user-name">Hamdan Zaheer</span></p>
+                        <p>Logged in as <span class="user-name">
+                        {% if user.is_authenticated %}
+                        {{user.username}}
+                        {% endif %}
+                        </span></p>
                     </div>
                 </div>
             </div>

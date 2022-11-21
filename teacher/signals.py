@@ -7,11 +7,11 @@ from django.db.models.signals import post_save
 def create_mentor(sender,created, instance,**kwargs):
     if created:
         Mentor.objects.create(user=instance)
-        print('Mentor Created !')
+        
 
-@receiver(post_save, sender=User)
-def update_mentor(sender,created, instance,**kwargs):
-    if created == False:
-        instance.profile.save()
-        print('Mentor Created !')
+# @receiver(post_save, sender=User)
+# def update_mentor(sender,created, instance,**kwargs):
+#     if created == False:
+#         instance.profile.save()
+        
 
