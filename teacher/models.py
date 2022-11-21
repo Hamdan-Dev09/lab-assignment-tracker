@@ -1,5 +1,7 @@
 from unittest.util import _MAX_LENGTH
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 
 # Create your models here.
 class Course(models.Model):
@@ -14,14 +16,13 @@ class Course(models.Model):
 
 
 class Mentor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length = 100)
-    email = models.EmailField()
-    password = models.CharField(max_length = 80)
     image = models.ImageField(blank = True, null = True)
     courses = models.ManyToManyField(Course)
 
     def __str__(self):
-        return self.name
+        return str(self.user)
 
 
 
