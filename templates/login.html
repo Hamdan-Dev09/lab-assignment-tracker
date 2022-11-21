@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href={% static 'css/login.css' %}>
   <title>Document</title>
 </head>
 <body>
@@ -16,19 +17,11 @@
     </div>
     <div class="form-container">
       <div class="form-area">
-        <form id= "form">
+        <form id= "form" action = "login" method = 'post'>
+          {% csrf_token %}
+         
           <div class="input-div">
-            <input type="text" placeholder="First Name" id = "Fname" name="Fname">
-            <p></p>
-            <img src="../assets/register/icon-error.svg" alt="">
-          </div>
-          <div class="input-div">
-            <input type="text" placeholder="Last Name" id = "Lname" name="Lname">
-            <p></p>
-            <img src="../assets/register/icon-error.svg" alt="">
-          </div>
-          <div class="input-div">
-            <input type="text" placeholder="Email Address" id = "email" name="email">
+            <input type="text" placeholder="Username" id = "username" name="username">
             <p>Looks like this is not an email</p>
             <img src="../assets/register/icon-error.svg" alt="">
           </div>
