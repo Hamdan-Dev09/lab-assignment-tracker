@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap");
+
+
+.flex-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 30px;
+}
+
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(420px, 470px));
+      grid-template-columns: repeat(2, minmax(420px, 470px));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 30px;
+}
+
+.students-card {
+  max-width: 470px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  -webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.14);
+          box-shadow: 1px 0 5px rgba(0, 0, 0, 0.14);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 250px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.bg-section {
+  background-color: #2472e7;
+  padding: 10px 0;
+  width: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.week-status {
+  color: #fff;
+  font-size: 45px;
+  text-align: center;
+}
+
+.week-status span {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.week-status .large {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  font-size: 4rem;
+}
+
+.week-status .large small {
+  font-size: 16px;
+  margin-left: 2px;
+  margin-top: 8px;
+}
+
+.students-card-content {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.students-card-content .student-name {
+  font-weight: 300;
+  font-size: 35px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+.students-card-content .student-faculty-no, .students-card-content .course-enrolled {
+  font-size: 15px;
+  color: #6c6e70;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.students-card:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+@media (max-width: 1000px) {
+  .grid-container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .students-card-content .student-name {
+    font-size: 30px;
+  }
+}
+
+.table-container {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table thead tr th {
+  padding: 10px;
+  background-color: #287bff;
+  color: white;
+}
+
+.table tbody tr td {
+  padding: 8px;
+  text-align: center;
+}
+
+.table tbody tr:first-child td {
+  padding-top: 20px;
+}
+
+.table tbody tr:last-child td {
+  padding-bottom: 20px;
+}
+
+.table .table-btn {
+  display: inline-block;
+  width: 100px;
+  padding: 3px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.table .completed {
+  background-color: #287bff;
+  color: white;
+}
+
+.table .ongoing {
+  background-color: #56bd00;
+  color: white;
+}
+
+.table .pending {
+  background-color: yellow;
+}
+/*# sourceMappingURL=Course.css.map */
