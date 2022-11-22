@@ -8,63 +8,23 @@
 
     <div class="card-container">
        
+        {% for course in courses %}
         <div class="card">
             <div class="bg">
                 <div class="img"></div>
             </div>
             
+            <a href="{% url 'course' course.code %}">
             <div class="card-content">
                 <div class="card-content-inner">
-                    <p>MCA 3 Semester</p>
-                    <h3>Programming with Python</h3>
-                    <p>CAMS3P01</p>
+                    <p>{{course.program}} {{course.semester}} Semester</p>
+                    <h3>{{course.title}}</h3>
+                    <p>{{course.code}}</p>
                 </div>
             </div>
+            </a>
         </div>
-        
-        
-
-        <div class="card">
-            <div class="bg">
-                <div class="img"></div>
-            </div>
-            
-            <div class="card-content">
-                <div class="card-content-inner">
-                    <p>MCA 3 Semester</p>
-                    <h3>Programming with Python</h3>
-                    <p>CAMS3P01</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="bg">
-                <div class="img"></div>
-            </div>
-            
-            <div class="card-content">
-                <div class="card-content-inner">
-                    <p>MCA 3 Semester</p>
-                    <h3>Programming with Python</h3>
-                    <p>CAMS3P01</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="bg">
-                <div class="img"></div>
-            </div>
-            
-            <div class="card-content">
-                <div class="card-content-inner">
-                    <p>MCA 3 Semester</p>
-                    <h3>Programming with Python</h3>
-                    <p>CAMS3P01</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 

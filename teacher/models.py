@@ -4,15 +4,21 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
 # Create your models here.
-class Course(models.Model):
-    class_name = models.CharField(max_length = 50)
-    semester = models.IntegerField()
-    lab_code = models.CharField(max_length = 50)
-    lab_title = models.CharField(max_length = 50)
+
+class Degree(models.Model):
+    degree_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.class_name
+        return self.degree_name
 
+class Course(models.Model):
+    program = models.ForeignKey(Degree, on_delete=models.CASCADE)
+    semester = models.IntegerField()
+    code = models.CharField(max_length = 50)
+    title = models.CharField(max_length = 50)
+
+    def __str__(self):
+        return self.title
 
 
 class Mentor(models.Model):
@@ -25,31 +31,28 @@ class Mentor(models.Model):
         return str(self.user)
 
 
-
 class Student(models.Model):
     name = models.CharField(max_length = 50)
     faculty_no = models.CharField(max_length = 15)
-    mentor = models.ForeignKey(Mentor, on_delete = models.CASCADE)
-    course = models.ForeignKey(Course, on_delete = models.CASCADE)
+    mentor = models.ForeignKey(Mentor, on_delete = models.PROTECT)
+    course = models.ForeignKey(Course, on_delete = models.PROTECT)
 
     def __str__(self):
         return self.name
 
 
 class Week(models.Model):
-    # week_id = models.CharField(max_length = 10)
     week_no = models.IntegerField()
-    course = models.ForeignKey(Course, on_delete = models.CASCADE)
+    course = models.ForeignKey(Course, on_delete = models.PROTECT)
     lastDate = models.DateField(blank = True, null = True)
 
-
     def __str__(self):
-        return self.week_no
+        return str(self.week_no)
 
 
 class WeekStatus(models.Model):
-    week = models.ForeignKey(Week, on_delete = models.CASCADE)
-    student = models.ForeignKey(Student, on_delete = models.CASCADE)
+    week = models.ForeignKey(Week, on_delete = models.PROTECT)
+    student = models.ForeignKey(Student, on_delete = models.PROTECT)
     submittedOn = models.DateField(blank = True, null = True)
     
      

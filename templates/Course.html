@@ -3,13 +3,14 @@
 
 <div class="site-content">
     <div class="section-header">
-        <h1 class="section-title">MCA 3rd Sem</h1>
-        <p>Programming with Python</p>
-        <p>CAMS3P01</p>
+        <h1 class="section-title">{{course.program}} {{course.semester}} Semester</h1>
+        <p>{{course.title}}</p>
+        <p>{{course.code}}</p>
     </div>
 
     <div class="grid-container">
 
+        {% for student in students %}
         <div class="students-card">
             <div class="bg-section">
                 <h1 class="week-status">
@@ -20,63 +21,13 @@
             </div>
             <div class="students-card-content">
                 <div class="content-box">
-                    <h1 class="student-name">Mohd. Saquib Usmani</h1>
-                    <p class="student-faculty-no">21CAMSA138</p>
-                    <p class="course-enrolled">MCA 3rd sem</p>
+                    <h1 class="student-name">{{student.name}}</h1>
+                    <p class="student-faculty-no">{{student.faculty_no}}</p>
+                    <p class="course-enrolled">{{course.program}} {{course.semester}} Sem</p>
                 </div>
             </div>
         </div>
-
-        <div class="students-card">
-            <div class="bg-section">
-                <h1 class="week-status">
-                    <span>upto</span>
-                    <span class="large">8<small>th</small></span>
-                    <span>week</span>
-                </h1>
-            </div>
-            <div class="students-card-content">
-                <div class="content-box">
-                    <h1 class="student-name">Mohd. Saquib Usmani</h1>
-                    <p class="student-faculty-no">21CAMSA138</p>
-                    <p class="course-enrolled">MCA 3rd sem</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="students-card">
-            <div class="bg-section">
-                <h1 class="week-status">
-                    <span>upto</span>
-                    <span class="large">8<small>th</small></span>
-                    <span>week</span>
-                </h1>
-            </div>
-            <div class="students-card-content">
-                <div class="content-box">
-                    <h1 class="student-name">Aimen Faheem Siddique</h1>
-                    <p class="student-faculty-no">21CAMSA138</p>
-                    <p class="course-enrolled">MCA 3rd sem</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="students-card">
-            <div class="bg-section">
-                <h1 class="week-status">
-                    <span>upto</span>
-                    <span class="large">8<small>th</small></span>
-                    <span>week</span>
-                </h1>
-            </div>
-            <div class="students-card-content">
-                <div class="content-box">
-                    <h1 class="student-name">Mohd. Saquib Usmani</h1>
-                    <p class="student-faculty-no">21CAMSA138</p>
-                    <p class="course-enrolled">MCA 3rd sem</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <div class="table-container">
