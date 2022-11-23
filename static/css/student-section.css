@@ -1,5 +1,6 @@
 
 .week-table {
+  position: relative;
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
@@ -11,6 +12,7 @@
   padding: 10px;
   background-color: #287bff;
   color: white;
+  text-align: center;
 }
 
 .week-table tbody tr td {
@@ -42,14 +44,19 @@
   margin-left: 5px;
 }
 
-.week-table .late {
-  background-color: red;
+.week-table .Late {
+  background-color: rgb(187, 46, 58);
   color: white;
 }
 
-.week-table .ontime {
+.week-table .Submitted {
   background-color: #56bd00;
   color: white;
+}
+
+.week-table .Pending {
+  background-color: #e2bc11;
+  color: rgb(0, 0, 0);
 }
 
 .week-table .check {
@@ -104,4 +111,5 @@
     text-align: left;
   }
 }
+
 /*# sourceMappingURL=student-section.css.map */

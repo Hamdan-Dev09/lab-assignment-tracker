@@ -11,11 +11,12 @@
     <div class="grid-container">
 
         {% for student in students %}
+        <a href="{% url 'student' student.faculty_no %}">
         <div class="students-card">
             <div class="bg-section">
                 <h1 class="week-status">
                     <span>upto</span>
-                    <span class="large">8<small>th</small></span>
+                    <span class="large">{{student.completed_till}}<small>th</small></span>
                     <span>week</span>
                 </h1>
             </div>
@@ -27,6 +28,7 @@
                 </div>
             </div>
         </div>
+        </a>
         {% endfor %}
     </div>
 
@@ -40,35 +42,24 @@
                 </tr>
             </thead>
             <tbody>
+                {% for week in weeks %}
                 <tr>
-                    <td  data-label="Week No">1</td>
-                    <td data-label="End Date">14/12/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn completed">Completed</a></td>
+                    <td  data-label="Week No">{{week.week_no}}</td>
+                    <td data-label="End Date">{{week.lastDate}}</td>
+                    <td data-label="Status">
+                    {% if week.completed %}
+                    <a href="#" class="table-btn completed">
+                        Completed
+                    </a>
+                    {% else %}
+                    <a href="#" class="table-btn pending">
+                        Pending
+                    </a>
+                    {% endif %}
+                    </td>
                 </tr>
+                {% endfor %}
 
-                <tr>
-                    <td data-label="Week No">2</td>
-                    <td data-label="End Date">14/07/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn completed">Completed</a></td>
-                </tr>
-
-                <tr>
-                    <td data-label="Week No">3</td>
-                    <td data-label="End Date">25/07/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn completed">Completed</a></td>
-                </tr>
-
-                <tr>
-                    <td data-label="Week No">4</td>
-                    <td data-label="End Date">09/08/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn ongoing">Ongoing</a></td>
-                </tr>
-
-                <tr>
-                    <td data-label="Week No">5</td>
-                    <td data-label="End Date">22/10/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn pending">Pending</a></td>
-                </tr>
             </tbody>
         </table>
     </div>

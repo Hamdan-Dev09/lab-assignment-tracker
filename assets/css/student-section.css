@@ -1,5 +1,6 @@
 
 .week-table {
+  position: relative;
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
@@ -11,6 +12,7 @@
   padding: 10px;
   background-color: #287bff;
   color: white;
+  text-align: center;
 }
 
 .week-table tbody tr td {
@@ -42,14 +44,19 @@
   margin-left: 5px;
 }
 
-.week-table .late {
-  background-color: red;
+.week-table .Late {
+  background-color: rgb(187, 46, 58);
   color: white;
 }
 
-.week-table .ontime {
+.week-table .Submitted {
   background-color: #56bd00;
   color: white;
+}
+
+.week-table .Pending {
+  background-color: #e2bc11;
+  color: rgb(0, 0, 0);
 }
 
 .week-table .check {
@@ -103,5 +110,49 @@
     font-weight: 600;
     text-align: left;
   }
+}
+
+.mdl-inactive {
+  display: none;
+}
+
+.mdl {
+  background-color: rgb(253, 253, 253);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.055);
+  z-index: 5;
+  width: 400px;
+  height: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mdl-title{
+  font-size: 20px;
+  font-weight: 600;
+  color: #287bff;
+  margin-bottom: 20px;
+}
+
+.mdl-content{
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.mdl-body{
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 20px;
+  padding: 30px 20px;
+}
+
+.mdl-active{
+  display: block;
 }
 /*# sourceMappingURL=student-section.css.map */

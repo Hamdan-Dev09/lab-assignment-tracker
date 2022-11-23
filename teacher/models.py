@@ -1,4 +1,3 @@
-from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -10,6 +9,7 @@ class Degree(models.Model):
 
     def __str__(self):
         return self.degree_name
+    
 
 class Course(models.Model):
     program = models.ForeignKey(Degree, on_delete=models.CASCADE)
@@ -24,7 +24,6 @@ class Course(models.Model):
 class Mentor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length = 100)
-    image = models.ImageField(blank = True, null = True)
     courses = models.ManyToManyField(Course)
 
     def __str__(self):
@@ -35,7 +34,7 @@ class Student(models.Model):
     name = models.CharField(max_length = 50)
     faculty_no = models.CharField(max_length = 15)
     mentor = models.ForeignKey(Mentor, on_delete = models.PROTECT)
-    course = models.ForeignKey(Course, on_delete = models.PROTECT)
+    course = models.ForeignKey(Course, on_delete = models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -43,7 +42,7 @@ class Student(models.Model):
 
 class Week(models.Model):
     week_no = models.IntegerField()
-    course = models.ForeignKey(Course, on_delete = models.PROTECT)
+    course = models.ForeignKey(Course, on_delete = models.CASCADE)
     lastDate = models.DateField(blank = True, null = True)
 
     def __str__(self):
@@ -51,8 +50,9 @@ class Week(models.Model):
 
 
 class WeekStatus(models.Model):
-    week = models.ForeignKey(Week, on_delete = models.PROTECT)
-    student = models.ForeignKey(Student, on_delete = models.PROTECT)
+    week = models.ForeignKey(Week, on_delete = models.CASCADE)
+    student = models.ForeignKey(Student, on_delete = models.CASCADE)
     submittedOn = models.DateField(blank = True, null = True)
     
-     
+    def __str__(self):
+        return f"{self.student.name}-{self.week.week_no} week"

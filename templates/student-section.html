@@ -5,9 +5,9 @@
 
 <div class="site-content">
     <div class="section-header">
-        <h1 class="section-title">mohamaad saquib usmani</h1>
-        <p>21CAMSA138</p>
-        <p>MCA 3rd SEM</p>
+        <h1 class="section-title">{{student.name}}</h1>
+        <p>{{student.faculty_no}}</p>
+        <p>{{student.course.program}} {{student.course.semester}} SEM</p>
     </div>
 
     <table class="week-table">
@@ -20,56 +20,26 @@
             </tr>
         </thead>
         <tbody>
+            {% for week_status in week_list %}
             <tr>
-                <td  data-label="Week No">1</td>
-                <td data-label="End Date">14/12/2022</td>
-                <td data-label="Submitted On">14/12/2022</td>
+                <td  data-label="Week No">{{week_status.week.week_no}}</td>
+                <td data-label="End Date">{{week_status.week.lastDate}}</td>
+                <td data-label="Submitted On">{{week_status.submittedOn}}</td>
                 <td>
-                    <a href="#" class="table-btn late">Late</a>
-                    <a href="#" class="table-btn check">Check</a>
-                </td>
-                
-            </tr>
-
-            <tr>
-                <td data-label="Week No">2</td>
-                <td data-label="End Date">14/07/2022</td>
-                <td data-label="Submitted On">14/12/2022</td>
-                <td>
-                    <a href="#" class="table-btn ontime">On Time</a>
-                    <a href="#" class="table-btn check">Check</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td data-label="Week No">3</td>
-                <td data-label="End Date">25/07/2022</td>
-                <td data-label="Submitted On">14/12/2022</td>
-                <td>
-                    <a href="#" class="table-btn ontime">On Time</a>
-                    <a href="#" class="table-btn check">Check</a>
+                    <a class="table-btn {{week_status.status}}">{{week_status.status}}</a>
+                    <!-- Button trigger modal -->
+                    {% if week_status.status == 'Pending' %}
+                    <a href="{% url 'check_week' week_status.id %}" class="table-btn check">
+                        Check
+                    </a>
+                    {% else %}
+                    <a href="{% url 'uncheck_week' week_status.id %}" class="table-btn check">
+                        Uncheck
+                    </a>
+                    {% endif %}
                 </td>
             </tr>
-
-            <tr>
-                <td data-label="Week No">4</td>
-                <td data-label="End Date">09/08/2022</td>
-                <td data-label="Submitted On">14/12/2022</td>
-                <td>
-                    <a href="#" class="table-btn late">Late</a>
-                    <a href="#" class="table-btn check">Check</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td data-label="Week No">5</td>
-                <td data-label="End Date">22/10/2022</td>
-                <td data-label="Submitted On">14/12/2022</td>
-                <td>
-                    <a href="#" class="table-btn ontime">On Time</a>
-                    <a href="#" class="table-btn check">Check</a>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

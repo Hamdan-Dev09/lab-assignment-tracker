@@ -7,13 +7,10 @@
     </div>
 
     <div class="card-container">
-       
         {% for course in courses %}
         <div class="card">
-            <div class="bg">
-                <div class="img"></div>
+            <div class="bg {{course.color}}">
             </div>
-            
             <a href="{% url 'course' course.code %}">
             <div class="card-content">
                 <div class="card-content-inner">
