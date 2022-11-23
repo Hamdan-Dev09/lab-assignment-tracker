@@ -15,6 +15,9 @@ body {
 a {
   text-decoration: none;
 }
+p{
+  margin-bottom: 0;
+}
 
 .wrapper {
   display: -webkit-box;
@@ -101,6 +104,7 @@ a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  overflow-y: scroll;
 }
 
 .nav-header {
@@ -166,12 +170,18 @@ a {
   font-size: 12px;
   font-weight: bold;
   color: grey;
+  margin-bottom: 0;
 }
 
 .user-profile .user-info .user-name {
   display: block;
   color: #287bff;
   font-size: 14px;
+  text-transform: capitalize;
+}
+
+.user-profile .user-info .user-name p{
+  margin-bottom: 0;
 }
 
 .site-content {

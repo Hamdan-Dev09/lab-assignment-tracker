@@ -112,47 +112,4 @@
   }
 }
 
-.mdl-inactive {
-  display: none;
-}
-
-.mdl {
-  background-color: rgb(253, 253, 253);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.055);
-  z-index: 5;
-  width: 400px;
-  height: 300px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.mdl-title{
-  font-size: 20px;
-  font-weight: 600;
-  color: #287bff;
-  margin-bottom: 20px;
-}
-
-.mdl-content{
-  font-size: 16px;
-  font-weight: 500;
-  color: #000;
-  margin-bottom: 20px;
-}
-
-.mdl-body{
-  font-size: 16px;
-  font-weight: 400;
-  color: #000;
-  margin-bottom: 20px;
-  padding: 30px 20px;
-}
-
-.mdl-active{
-  display: block;
-}
 /*# sourceMappingURL=student-section.css.map */

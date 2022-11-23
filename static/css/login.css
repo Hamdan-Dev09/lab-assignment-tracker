@@ -5,11 +5,21 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+.img{
+  display: flex;
+}
+img{
+  display: block;
+  /* margin-bottom: 30px; */
+  width: 150px;
+  margin: 0 auto 30px auto;
+
+}
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: url("../assets/register/bg-intro-mobile.png");
-  background-color: #ff7a7a;
+  background-image: url("../images/banner.jpg");
+  background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
@@ -52,6 +62,17 @@ body {
 
 .text-container {
   height: 100%;
+}
+.owl-carousel .owl-item img {
+  display: inline-block;
+  width: auto;
+}
+.owl-carousel .owl-nav div.owl-next {
+  left: auto;
+  right: 0;
+}
+.owl-carousel .owl-nav div {
+  left: 0;
 }
 
 .text-content {
@@ -176,9 +197,7 @@ body {
 }
 
 @media (min-width: 1000px) {
-  body {
-    background-image: url(../assets/register/bg-intro-desktop.png);
-  }
+  
   .main-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
