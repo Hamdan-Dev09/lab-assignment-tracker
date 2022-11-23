@@ -3,80 +3,33 @@
 
 <div class="site-content">
     <div class="section-header">
-        <h1 class="section-title">MCA 3rd Sem</h1>
-        <p>Programming with Python</p>
-        <p>CAMS3P01</p>
+        <h1 class="section-title">{{course.program}} {{course.semester}} Semester</h1>
+        <p>{{course.title}}</p>
+        <p>{{course.code}}</p>
     </div>
 
     <div class="grid-container">
 
+        {% for student in students %}
+        <a href="{% url 'student' student.faculty_no %}">
         <div class="students-card">
             <div class="bg-section">
                 <h1 class="week-status">
                     <span>upto</span>
-                    <span class="large">8<small>th</small></span>
+                    <span class="large">{{student.completed_till}}<small>th</small></span>
                     <span>week</span>
                 </h1>
             </div>
             <div class="students-card-content">
                 <div class="content-box">
-                    <h1 class="student-name">Mohd. Saquib Usmani</h1>
-                    <p class="student-faculty-no">21CAMSA138</p>
-                    <p class="course-enrolled">MCA 3rd sem</p>
+                    <h1 class="student-name">{{student.name}}</h1>
+                    <p class="student-faculty-no">{{student.faculty_no}}</p>
+                    <p class="course-enrolled">{{course.program}} {{course.semester}} Sem</p>
                 </div>
             </div>
         </div>
-
-        <div class="students-card">
-            <div class="bg-section">
-                <h1 class="week-status">
-                    <span>upto</span>
-                    <span class="large">8<small>th</small></span>
-                    <span>week</span>
-                </h1>
-            </div>
-            <div class="students-card-content">
-                <div class="content-box">
-                    <h1 class="student-name">Mohd. Saquib Usmani</h1>
-                    <p class="student-faculty-no">21CAMSA138</p>
-                    <p class="course-enrolled">MCA 3rd sem</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="students-card">
-            <div class="bg-section">
-                <h1 class="week-status">
-                    <span>upto</span>
-                    <span class="large">8<small>th</small></span>
-                    <span>week</span>
-                </h1>
-            </div>
-            <div class="students-card-content">
-                <div class="content-box">
-                    <h1 class="student-name">Aimen Faheem Siddique</h1>
-                    <p class="student-faculty-no">21CAMSA138</p>
-                    <p class="course-enrolled">MCA 3rd sem</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="students-card">
-            <div class="bg-section">
-                <h1 class="week-status">
-                    <span>upto</span>
-                    <span class="large">8<small>th</small></span>
-                    <span>week</span>
-                </h1>
-            </div>
-            <div class="students-card-content">
-                <div class="content-box">
-                    <h1 class="student-name">Mohd. Saquib Usmani</h1>
-                    <p class="student-faculty-no">21CAMSA138</p>
-                    <p class="course-enrolled">MCA 3rd sem</p>
-                </div>
-            </div>
-        </div>
+        </a>
+        {% endfor %}
     </div>
 
     <div class="table-container">
@@ -89,35 +42,24 @@
                 </tr>
             </thead>
             <tbody>
+                {% for week in weeks %}
                 <tr>
-                    <td  data-label="Week No">1</td>
-                    <td data-label="End Date">14/12/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn completed">Completed</a></td>
+                    <td  data-label="Week No">{{week.week_no}}</td>
+                    <td data-label="End Date">{{week.lastDate}}</td>
+                    <td data-label="Status">
+                    {% if week.completed %}
+                    <a href="#" class="table-btn completed">
+                        Completed
+                    </a>
+                    {% else %}
+                    <a href="#" class="table-btn pending">
+                        Pending
+                    </a>
+                    {% endif %}
+                    </td>
                 </tr>
+                {% endfor %}
 
-                <tr>
-                    <td data-label="Week No">2</td>
-                    <td data-label="End Date">14/07/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn completed">Completed</a></td>
-                </tr>
-
-                <tr>
-                    <td data-label="Week No">3</td>
-                    <td data-label="End Date">25/07/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn completed">Completed</a></td>
-                </tr>
-
-                <tr>
-                    <td data-label="Week No">4</td>
-                    <td data-label="End Date">09/08/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn ongoing">Ongoing</a></td>
-                </tr>
-
-                <tr>
-                    <td data-label="Week No">5</td>
-                    <td data-label="End Date">22/10/2022</td>
-                    <td data-label="Status"><a href="#" class="table-btn pending">Pending</a></td>
-                </tr>
             </tbody>
         </table>
     </div>

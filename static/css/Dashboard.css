@@ -53,6 +53,43 @@
   background-size: cover;
 }
 
+.bg1{
+  background-color: #4abdac;
+}
+
+.bg2{
+  background-color: #fc4a1a;
+}
+
+.bg3{
+  background-color: #f78733;
+}
+
+.bg4{
+  background-color: #4717f6;
+}
+
+.bg5{
+  background-color: #a239ca;
+}
+
+.bg6{
+  background-color: #062f4f;
+}
+
+.bg7{
+  background-color: #813772;
+}
+
+.bg8{
+  background-color: #ff3b3f;
+}
+
+.bg9{
+  background-color: #76323f;
+}
+
+
 .img {
   height: 100px;
   width: 100px;
