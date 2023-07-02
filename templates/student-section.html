@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     
 
@@ -8,6 +9,7 @@
         <h1 class="section-title">{{student.name}}</h1>
         <p>{{student.faculty_no}}</p>
         <p>{{student.course.program}} {{student.course.semester}} SEM</p>
+        <p>Marks: {{marks_sum}} / {{out_of_marks}}</p>
     </div>
 
     <table class="week-table">
@@ -16,6 +18,7 @@
                 <th>Week No</th>
                 <th>End Date</th>
                 <th>Submitted On</th>
+                <th>Marks</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -25,22 +28,36 @@
                 <td  data-label="Week No">{{week_status.week.week_no}}</td>
                 <td data-label="End Date">{{week_status.week.lastDate}}</td>
                 <td data-label="Submitted On">{{week_status.submittedOn}}</td>
+                <td data-label="Marks">{{week_status.marks}}</td>
                 <td>
                     <a class="table-btn {{week_status.status}}">{{week_status.status}}</a>
-                    <!-- Button trigger modal -->
-                    {% if week_status.status == 'Pending' %}
-                    <a href="{% url 'check_week' week_status.id %}" class="table-btn check">
-                        Check
+                
+                    
+                    <a href="" class="table-btn {% if week_status.marks %} checked {% else %}check{% endif %} review" btn-id="{{ week_status.week.week_no }}">
+                        Review
                     </a>
-                    {% else %}
-                    <a href="{% url 'uncheck_week' week_status.id %}" class="table-btn check">
-                        Uncheck
-                    </a>
-                    {% endif %}
+                    <div class="marks-modal" id= {{week_status.week.week_no}}>
+                        <a href="{% if week_status.file %} {{week_status.file.url}} {%else%} # {%endif%}" target="_blank">
+                        <img src="{% static 'images/download-pdf.png' %}" alt="" class="download-pdf-img">
+                        </a>
+                        <form method="post" enctype="multipart/form-data" action="{% url 'review' week_status.id %}">
+                            {% csrf_token %}
+                            <p> Marks : </p>
+                            <input type="number" name="marks" id="" value={{week_status.marks}} placeholder="Upload Marks">
+                            <div class="modal-btns">
+                                <button type="submit" class="btn">Submit</button>
+                                <button class="btn cancel" btn-id = {{week_status.week.week_no}}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                  
+                    
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    
 </div>
+
 {% endblock %}

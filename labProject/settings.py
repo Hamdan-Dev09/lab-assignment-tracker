@@ -69,6 +69,9 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
 WSGI_APPLICATION = 'labProject.wsgi.application'
 
 
@@ -126,3 +129,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -68,6 +68,56 @@
   background-color: #0d51bf;
 }
 
+.checked {
+  background-color: #7e7e7e;
+  color: white;
+}
+
+.checked:hover {
+  background-color: #7e7e7e;
+}
+
+.marks-modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  background-color: #fff;
+  display: none;
+}
+.marks-modal img{
+  cursor: pointer;
+}
+.marks-modal input{
+  padding: 5px 10px 5px; 
+  border-radius: 8px;
+
+}
+.modal-btns{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.marks-modal .btn{
+  display: inline-block;
+  background-color: #56bd00;
+  color: white; 
+}
+.marks-modal .cancel{
+  background-color: rgb(187, 46, 58);
+  color: white;
+}
+.modal-active{
+  display: flex;
+}
+
 @media (max-width: 786px) {
   .week-table {
     display: block;

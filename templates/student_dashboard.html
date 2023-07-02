@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+<div class="site-content">
+    <div class="section-header">
+        <h1 class="section-title">{{student.name}}</h1>
+        <p>{{student.faculty_no}}</p>
+        <p>{{student.course.program}} {{student.course.semester}} Semester</p>
+        <p>Marks: {{marks_sum}} / {{out_of_marks}}</p>
+    </div>
+
+    <table class="week-table">
+        <thead>
+            <tr>
+                <th>Week No</th>
+                <th>End Date</th>
+                <th>Submitted On</th>
+                <th>Status</th>
+                <th>Marks</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for week_st in week_list %}
+            <tr>
+                <td  data-label="Week No">{{week_st.id}}</td>
+                <td data-label="End Date">{{week_st.week.lastDate}}</td> <!-- Fix: Use "last_date" instead of "lastDate" -->
+                <td data-label="Submitted On">{{week_st.submittedOn}}</td>
+                <td>
+                    <a class="table-btn {{week_st.status}}">{{week_st.status}}</a>
+                </td>
+                <td data-label="Marks">{{week_st.marks}}</td>
+                <td>
+                    <form method="post" enctype="multipart/form-data" action="{% url 'submit' week_st.id %}"> <!-- Fix: Add method, enctype, and action attributes -->
+                        {% csrf_token %}
+                        <input type="file" name="file" id="fileInput" placeholder="Submit">
+                        <button type="submit" class="check table-btn">Submit</button> <!-- Fix: Add type="submit" to the button -->
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}  
+        </tbody>
+    </table>
+</div>
+{% endblock %}

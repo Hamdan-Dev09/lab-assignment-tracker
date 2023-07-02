@@ -1,6 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import CustomUser as User
 from django.db.models.signals import post_save
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 
@@ -14,6 +15,7 @@ class Degree(models.Model):
 class Course(models.Model):
     program = models.ForeignKey(Degree, on_delete=models.CASCADE)
     semester = models.IntegerField()
+    lab_manual = models.FileField(upload_to='lab_manuals/',blank=True, null=True)
     code = models.CharField(max_length = 50)
     title = models.CharField(max_length = 50)
 
@@ -22,7 +24,7 @@ class Course(models.Model):
 
 
 class Mentor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
     name = models.CharField(max_length = 100)
     courses = models.ManyToManyField(Course)
 
@@ -31,6 +33,7 @@ class Mentor(models.Model):
 
 
 class Student(models.Model):
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
     name = models.CharField(max_length = 50)
     faculty_no = models.CharField(max_length = 15)
     mentor = models.ForeignKey(Mentor, on_delete = models.PROTECT)
@@ -51,6 +54,13 @@ class Week(models.Model):
 
 class WeekStatus(models.Model):
     week = models.ForeignKey(Week, on_delete = models.CASCADE)
+    marks = models.IntegerField(blank=True, null=True,
+        validators=[
+            MinValueValidator(0, message='Value must be greater than or equal to 0.'),
+            MaxValueValidator(10, message='Value must be less than or equal to 10.')
+        ]
+    )
+    file = models.FileField(upload_to = 'uploads/', blank = True, null = True)
     student = models.ForeignKey(Student, on_delete = models.CASCADE)
     submittedOn = models.DateField(blank = True, null = True)
     
